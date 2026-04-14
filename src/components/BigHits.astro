@@ -1,0 +1,114 @@
+---
+// BigHits.astro
+import { Image } from 'astro:assets';
+import yt1 from '../assets/images/youtube1.jpg';
+import yt2 from '../assets/images/youtube2.jpg';
+import yt3 from '../assets/images/youtube3.jpg';
+import yt4 from '../assets/images/youtube4.jpg';
+import yt5 from '../assets/images/youtube5.jpg';
+import yt6 from '../assets/images/youtube6.jpg';
+
+const videos = [
+  {
+    title: "¡¡MEGA DIAMANTE!! con un multi grande esto se puede ROMPER \"BANK BLAST\"",
+    thumbnail: yt1,
+    url: "https://www.youtube.com/@kikeapuestas",
+    platform: "YouTube"
+  },
+  {
+    title: "¡¡REMONTADA EPICA!! de estar a nada de perder, a ganarlo TODO",
+    thumbnail: yt2,
+    url: "https://www.youtube.com/@kikeapuestas",
+    platform: "YouTube"
+  },
+  {
+    title: "¡¡APOSTÉ $250,000 a KARELY RUIZ!! y esto fue lo que pasó después 😳",
+    thumbnail: yt3,
+    url: "https://www.youtube.com/@kikeapuestas",
+    platform: "YouTube"
+  },
+  {
+    title: "🔥 DE LA ZONA VIP… A REGALAR DINERO EN EL FESTIVAL TECATE PAL NORTE 2026 💸",
+    thumbnail: yt4,
+    url: "https://www.youtube.com/@kikeapuestas",
+    platform: "YouTube"
+  },
+  {
+    title: "¡¡LE TERCO LO HIZO DE NUEVO!! La más DURA de todas LE FISHERMAN de Hacksw Gaming",
+    thumbnail: yt5,
+    url: "https://www.youtube.com/@kikeapuestas",
+    platform: "YouTube"
+  },
+  {
+    title: "🔥¡¡¡MAX WIN!!!🔥YA NO TENÍA NADA Y PASÓ LO IMPOSIBLE… DRAGONSPIRE💰",
+    thumbnail: yt6,
+    url: "https://www.youtube.com/@kikeapuestas",
+    platform: "YouTube"
+  }
+];
+---
+
+<section id="bighits" class="py-24 bg-black relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-10 w-2 bg-brand-neon rounded-full"></div>
+      <h2 class="text-4xl sm:text-5xl font-anton text-white uppercase tracking-wider">
+        Mis <span class="text-brand-neon">Videos Destacados</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {videos.map(video => (
+        <a 
+          href={video.url} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="group block relative rounded-2xl overflow-hidden bg-gray-900 border border-white/10 hover:border-brand-neon transition-all duration-500"
+        >
+          <!-- Thumbnail Image -->
+          <div class="relative aspect-video w-full overflow-hidden">
+            <Image 
+              src={video.thumbnail} 
+              alt={video.title} 
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+              width={600}
+              height={338}
+            />
+            <!-- Dark overlay -->
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+            
+            <!-- Play Button Overlay -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 bg-[#FF0000]/90 text-white rounded-full flex items-center justify-center pl-1 transform group-hover:scale-110 group-hover:shadow-[0_0_20px_#FF0000] transition-all duration-300 backdrop-blur-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Platform Badge -->
+            <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+              <span class="text-xs font-semibold text-white uppercase tracking-wider">{video.platform}</span>
+            </div>
+          </div>
+
+          <!-- Video Info -->
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-white leading-snug line-clamp-2 group-hover:text-brand-neon transition-colors duration-300">
+              {video.title}
+            </h3>
+          </div>
+        </a>
+      ))}
+    </div>
+    
+    <div class="text-center mt-12">
+      <a href="https://www.youtube.com/@kikeapuestas" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-white hover:text-brand-neon transition-colors font-semibold uppercase tracking-wider text-sm">
+        Ver más vídeos en YouTube
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

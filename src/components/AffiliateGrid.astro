@@ -1,0 +1,70 @@
+---
+// AffiliateGrid.astro
+import { Image } from 'astro:assets';
+
+import mxImg from '../assets/images/mexico.png';
+import coImg from '../assets/images/colombia.png';
+import peImg from '../assets/images/peru.png';
+
+const countries = [
+  {
+    name: "México",
+    image: mxImg,
+    link: "https://stake1021.com/es?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnB9NCa_UxIHNqJi4R6ZclB64R1bcaKN6Mm4XmfNFfXSf2sGyHdbo5oqH6t24_aem_HCkom7rMrYDU4GwRkNH9Sg",
+  },
+  {
+    name: "Colombia",
+    image: coImg,
+    link: "https://stake.com.co/es/bienvenida?btag=KIKECOLOMBIA&modal=registerModal&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn-c20jFpWhjgmJbHF-dzBubef0Ul4FdaNKs44AuXysAF91Kqn0I2U2KJcQ9Q_aem_jfVyqnpXGTlTS8y0BJJ8rw",
+  },
+  {
+    name: "Perú",
+    image: peImg,
+    link: "https://stake.pe/bienvenida?btag=kIKEPERU&modal=registerModal&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnaImEnj2uwPJBpEs2rCTMBUhykOiFvlV4AeDxJf1_vlKnpKst9ObvfOleeQQ_aem_pjplTEq4nwppjeXQJKpZyw",
+  }
+];
+---
+
+<section id="register" class="py-24 relative overflow-hidden">
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl sm:text-6xl font-anton text-white uppercase tracking-wide mb-4 drop-shadow-xl">
+        Elige tu <span class="text-[#e4007c]">Zona de Juego</span>
+      </h2>
+      <p class="text-gray-300 max-w-2xl mx-auto text-lg font-medium">
+        Usa el código promocional exclusivo del Tío Kike al registrarte y recibe un bono hiper-agresivo para multiplicar tu primer depósito.
+      </p>
+    </div>
+
+    <!-- The grid manages identical widths for all cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+      {countries.map(country => (
+        <a 
+          href={country.link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="flex flex-col rounded-3xl group transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(20,184,166,0.15)] bg-[#0A0E17] border border-white/5 cursor-pointer overflow-hidden"
+        >
+          <!-- FIXED height container forces ALL cards to be identically sized mathematically -->
+          <div class="w-full h-[400px] lg:h-[480px] relative flex items-end justify-center pt-6 px-4 bg-gradient-to-b from-[#111827] to-[#0A0E17]">
+            <Image 
+              src={country.image} 
+              alt={`Tío Kike en ${country.name}`} 
+              width={800} 
+              height={1000} 
+              class="w-full h-full object-contain object-bottom drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] filter transform group-hover:scale-[1.03] transition-transform duration-700 ease-out" 
+            />
+          </div>
+
+          <!-- Bottom Button Section taking exactly the same space on all cards -->
+          <div class="p-6 md:p-8 w-full border-t border-white/5">
+            <div class="w-full bg-[#131b2c] border border-brand-teal/20 text-brand-neon font-extrabold text-xl px-4 py-4 rounded-xl uppercase tracking-widest text-center transition-all duration-300 group-hover:bg-brand-neon group-hover:text-black group-hover:shadow-[0_0_20px_rgba(0,255,0,0.4)] shadow-lg">
+              CREA TU CUENTA
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

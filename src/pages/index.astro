@@ -1,31 +1,20 @@
 ---
-import '../styles/global.css';
-
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import AffiliateGrid from '../components/AffiliateGrid.astro';
+import BigHits from '../components/BigHits.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
-		<main class="mx-auto flex min-h-screen max-w-3xl items-center justify-center px-6">
-			<section class="w-full rounded-2xl border border-slate-800 bg-slate-900/70 p-8 shadow-2xl shadow-cyan-500/10">
-				<p class="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-cyan-400">Tailwind Check</p>
-				<h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
-					Astro + Tailwind is working
-				</h1>
-				<p class="mt-4 text-slate-300">
-					If this card has spacing, colors, and rounded corners, your Tailwind setup is active.
-				</p>
-				<button class="mt-6 inline-flex items-center rounded-lg bg-cyan-500 px-4 py-2 font-semibold text-slate-900 transition hover:bg-cyan-400">
-					Styled Button
-				</button>
-			</section>
-		</main>
-	</body>
-</html>
+<Layout title="El Tío Kike - Casino Online & Entretenimiento">
+  <Navbar />
+  
+  <main>
+    <Hero />
+    <AffiliateGrid />
+    <BigHits />
+  </main>
+  
+  <Footer />
+</Layout>
